@@ -1,0 +1,144 @@
+
+<html>
+	<head>
+	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<title>Loan Prediction</title>
+	</head>
+	<body>
+	<!-- Java Script -->	
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+		
+		<!-- Navbar-->
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1">Loan Prediction</span>
+		</nav>
+		<div class="container">
+			<br>
+			<!--Form-->
+			<form action = "{{url_for('predict')}}" method ="POST" >
+				<fieldset>
+				<legend>Loan Prediction Form</legend><br>
+				  <div class="card card-body" >
+					  <div class="form-group  row">
+						<div class="col-sm-3">
+							<label for="ApplicantIncome">ApplicantIncome</label>
+							<input type="number" class="form-control" id="ApplicantIncome" name="ApplicantIncome" required>
+						</div>
+						<div class="col-sm-3">
+							<label for="CoapplicantIncome ">CoapplicantIncome </label>
+							<input type="number" class="form-control" id="CoapplicantIncome" name="CoapplicantIncome" required>
+					  	</div>
+						<div class="col-sm-3">
+							<label for="LoanAmount">LoanAmount</label>
+							<input type="number" class="form-control" id="LoanAmount" name="LoanAmount" required>
+					  	</div>
+					  </div>
+					  <br>
+					  <div class="form-group row">
+						<div class="col-sm">
+							<label for="Gender">Gender</label>
+							<select class="form-control" id="Gender" name = "Gender" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "Female">Female</option>
+							<option value = "Male">Male</option>
+							</select>
+						</div>
+						<div class="col-sm">
+							<label for="Married">Married</label>
+							<select class="form-control" id="Married" name = "Married" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "No">No</option>
+							<option value = "Yes">Yes</option>
+							</select>						  
+						</div>
+						<div class="col-sm">
+							<label for="Dependents">Dependents</label>
+							<select class ="form-control" id= "Dependents" name = "Dependents" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "0">0</option>
+							<option value = "1">1</option>
+							<option value = "2">2</option>
+							<option value = "3above">3above</option>
+							</select>
+						</div>
+				  	  </div>
+					  <br>
+					  <div class="form-group row">
+						<div class="col-sm">
+							<label for="Education">Education</label>
+							<select class="form-control" id="Education" name="Education" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "Graduate">Graduate</option>
+							<option value = "Not Graduate">Not Graduate</option>
+							</select>
+						</div>
+						<div class="col-sm">
+							<label for="Self_Employed">Self_Employed</label>
+							<select class="form-control" id="Self_Employed" name="Self_Employed" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "No">No</option>
+							<option value = "Yes">Yes</option>
+							</select>						  
+						</div>
+						<div class="col-sm">
+							<label for="Loan_Amount_Term">Loan_Amount_Term (in Months)</label>
+							<select class="form-control" id="Loan_Amount_Term" name="Loan_Amount_Term" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "12">12</option>
+							<option value = "36>36</option>
+							<option value = "60">60</option>
+							<option value = "84">84</option>
+							<option value = "120">120</option>
+							<option value = "180">180</option>
+							<option value = "240">240</option>
+							<option value = "300">300</option>
+							<option value = "360">360</option>
+							<option value = "480">480</option>
+							</select>
+						</div>
+				  	  </div>
+					   <br>
+				           <div class="form-group  row">
+						  <div class="col-sm">
+							<label for="Credit_History">Credit_History</label>
+							<select class="form-control" id="Credit_History" name="Credit_History" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "0">0</option>
+							<option value = "1">1</option>
+							</select>
+						  </div>
+						  <div class="col-sm">
+							<label for="Property_Area">Property_Area</label>
+							<select class="form-control" id="Property_Area" name = "Property_Area" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "Rural">Rural</option>
+							<option value = "Semiurban">Semiurban</option>
+							<option value = "Urban">Urban</option>
+							</select>
+						  </div>
+					  </div>
+					  <br>
+					  <div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Result">
+					  </div>
+					  
+					  <!--Prediction Result-->
+					  <div id ="result">
+							<strong style="color:red">{{result}}</strong>
+					 </div>
+				     </div>
+			 </fieldset>
+			</form>
+			
+		</div>
+		
+	</body>
+</html>
+
